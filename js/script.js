@@ -90,7 +90,7 @@ async function getWords() {
   const resp = await fetch(apiUrl);
   const json = await resp.json();
 
-  words = json.filter((word) => word.length >= 6);
+  return json.filter((word) => word.length >= 6);
 }
 
 // Keydown letter press
@@ -156,7 +156,7 @@ playAgainBtn.addEventListener("click", () => {
 });
 
 (async () => {
-  await getWords();
+  words = await getWords();
 
   selectedWord = getRandomWord();
   displayWord();
